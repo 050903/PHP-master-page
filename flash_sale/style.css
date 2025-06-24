@@ -1,0 +1,174 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.flash-sale-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+    border-top: 5px solid #ff4d4f; /* Màu đỏ flash sale */
+}
+
+.flash-sale-title {
+    background-color: #ff4d4f;
+    color: white;
+    padding: 10px 15px;
+    display: inline-block;
+    border-radius: 5px;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    justify-content: center;
+}
+
+.product-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Để button "Chọn mua" luôn ở cuối */
+}
+
+.discount-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #ff4d4f;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.product-image-wrapper {
+    width: 100%;
+    padding-top: 100%; /* Tạo tỷ lệ khung hình vuông cho ảnh */
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Giữ nguyên tỷ lệ ảnh, căn giữa */
+    padding: 10px; /* Thêm padding để ảnh không chạm viền */
+    box-sizing: border-box;
+}
+
+.product-info {
+    padding: 15px;
+    text-align: left;
+    flex-grow: 1; /* Để phần thông tin co giãn */
+}
+
+.product-name {
+    font-size: 1em;
+    font-weight: bold;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 5px;
+    min-height: 40px; /* Đảm bảo chiều cao tối thiểu cho tên sản phẩm */
+}
+
+.product-description {
+    font-size: 0.85em;
+    color: #666;
+    margin-bottom: 10px;
+    min-height: 30px; /* Đảm bảo chiều cao tối thiểu cho mô tả */
+}
+
+.price-section {
+    margin-bottom: 15px;
+}
+
+.discount-price {
+    font-size: 1.2em;
+    color: #ff4d4f;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.original-price {
+    font-size: 0.9em;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.add-to-cart-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    width: calc(100% - 30px); /* Đảm bảo nút chiếm đủ chiều rộng, trừ padding */
+    margin: 0 15px 15px 15px; /* Thêm margin dưới và hai bên */
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+    .flash-sale-container {
+        margin: 10px;
+        padding: 15px;
+    }
+    .flash-sale-title {
+        font-size: 1.3em;
+        padding: 8px 12px;
+    }
+    .product-name {
+        font-size: 0.9em;
+    }
+    .discount-price {
+        font-size: 1.1em;
+    }
+    .original-price {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-grid {
+        grid-template-columns: 1fr; /* Một cột trên màn hình nhỏ */
+    }
+    .product-card {
+        max-width: 300px; /* Giới hạn chiều rộng thẻ trên di động */
+        margin: auto; /* Căn giữa thẻ */
+    }
+}
